@@ -253,6 +253,7 @@ async def score_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 gamee.send_score()
                 await update.message.reply_text("🌝 Score updated successfully!")
 
+                await _upd_candy_qty(context.user_data['id'], int(candy_qty[0]['quantity']) + int(ONE_HACK_COST))
                 await _post_game(context.user_data['id'], context.user_data["url"], context.user_data["score"])
 
             except Exception as e:
